@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  webapp:
+
+    image: php:apache
+
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+
+    volumes:
+      - ./website:/var/www/html
+    depends_on:
+      - api
+
+    ports:
+      - "8000:80"
+    
+    restart: always
+
+    networks:
+      - student-app
+
+  api:
+
+    build: ./simple_api
+    container_name: student-api
+
+    ports :
+      - 50000:5000
+    volumes :
+      - ./simple_api/student_age.json:/data/student_age.json
+
+    networks:
+      - student-app
+
+
+  registry-ui:
+    image: joxit/docker-registry-ui:main
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - SINGLE_REGISTRY=true
+      - REGISTRY_TITLE=Docker Registry UI
+      - DELETE_IMAGES=true
+      - SHOW_CONTENT_DIGEST=true
+      - NGINX_PROXY_PASS_URL=http://registry-server:5000
+      - SHOW_CATALOG_NB_TAGS=true
+      - CATALOG_MIN_BRANCHES=1
+      - CATALOG_MAX_BRANCHES=1
+      - TAGLIST_PAGE_SIZE=100
+      - REGISTRY_SECURED=false
+      - CATALOG_ELEMENTS_LIMIT=1000
+    container_name: registry-ui
+    networks:
+      - student-registry
+
+  registry-server:
+    image: registry:2.8.2
+    restart: always
+    environment:
+      REGISTRY_HTTP_HEADERS_Access-Control-Origin: '[http://registry.example.com]'
+      REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods: '[HEAD,GET,OPTIONS,DELETE]'
+      REGISTRY_HTTP_HEADERS_Access-Control-Credentials: '[true]'
+      REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers: '[Authorization,Accept,Cache-Control]'
+      REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers: '[Docker-Content-Digest]'
+      REGISTRY_STORAGE_DELETE_ENABLED: 'true'
+    volumes:
+      - ./registry/data:/var/lib/registry
+    container_name: registry-server
+    networks:
+      - student-registry
+    ports :
+      - 51000:5000
+
+
+networks:
+
+  student-registry :
+  student-app :
+
+
+
+
+
