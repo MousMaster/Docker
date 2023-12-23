@@ -108,3 +108,9 @@ docker push localhost:51000/v2/student_api
 ![project](https://github.com/MousMaster/Docker/blob/master/images/push_front_ok.png)
 
 Les captures d'écran fournies montrent que les étapes se sont déroulées avec succès.
+
+
+Lien pour tester l'infra :
+
+Registre : http://52.6.33.255:80
+Student UI : http://52.6.33.255:8000
