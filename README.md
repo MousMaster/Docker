@@ -116,4 +116,4 @@ Registre : http://52.6.33.255:80
 Student UI : http://52.6.33.255:8000
 
 
-[![Your Workflow Name](https://github.com/MousMaster/DockerProject/workflows/main/badge.svg)](https://github.com/MousMaster/DockerProject/actions)
+[![Build Status](https://github.com/MousMaster/DockerProjet/workflows/main/badge.svg)](https://github.com/MousMaster/DockerProjet/actions)
