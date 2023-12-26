@@ -114,3 +114,6 @@ Lien pour tester l'infra :
 
 Registre : http://52.6.33.255:80
 Student UI : http://52.6.33.255:8000
+
+
+[![Your Workflow Name](https://github.com/mousmaster/dockerproject/workflows/main/badge.svg)](https://github.com/mousmaster/dockerproject/actions)
