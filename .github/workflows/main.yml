@@ -3,7 +3,7 @@ name: Docker Compose Workflow
 on:
   push:
     branches:
-      - main  # Adjust this to match your branch name
+      - master  # Adjust this to match your branch name
 
 jobs:
   build:
