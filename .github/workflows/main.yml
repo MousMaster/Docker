@@ -22,7 +22,7 @@ jobs:
         run: |
           docker-compose --version  # Display Docker Compose version
           docker-compose up -d  # Execute your Docker Compose commands here
-
+#
       - name: Send Telegram notification
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
