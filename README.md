@@ -118,7 +118,7 @@ Student UI : http://52.6.33.255:8000
 
 [![Docker Compose Workflow](https://github.com/MousMaster/DockerProjet/actions/workflows/main.yml/badge.svg)](https://github.com/MousMaster/DockerProjet/actions/workflows/main.yml)
 
-[Return to portfolio](https://github.com/MousMaster/Portfolio)
+[Continue Exploring My Portfolio: Return to Main Page](https://github.com/MousMaster/Portfolio)
 
 
 
